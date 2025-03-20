@@ -1,70 +1,42 @@
-// import React, { useEffect } from 'react';
-// import { Container, Card, Button } from 'react-bootstrap';
-// import { useNavigate } from 'react-router-dom';
 
-// import AppNavbar from '../components/Navbar';
-
-// const WelcomePage = () => {
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     document.body.style.backgroundColor = '#FFA500'; 
-//     return () => {
-//       document.body.style.backgroundColor = ''; 
-//     };
-//   }, []);
-
-//   return (
-//     <>
-//       <AppNavbar />
-//       <Container className="d-flex justify-content-center align-items-center min-vh-100">
-       
-//           <h2>Welcome to the Event Management System!</h2>
-          
-        
-//       </Container>
-//     </>
-//   );
-// };
-
-// export default WelcomePage;
-import React, { useEffect } from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
+// src/pages/HomePage.js
+import React from 'react';
+import { Container, Card, Row, Col, Image } from 'react-bootstrap';
 import AppNavbar from '../components/Navbar';
 
 const WelcomePage = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    document.body.style.backgroundColor = '#FFA500';
-    return () => {
-      document.body.style.backgroundColor = '';
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    navigate('/events'); // Replace '/events' with your desired route
-  };
-
-  const handleGoBack = () => {
-    navigate(-1); // Go back to the previous page in history
-  };
-
   return (
     <>
       <AppNavbar />
-      <Container className="d-flex justify-content-center align-items-center min-vh-100">
-        <Card className="text-center p-4">
-          <h2>Welcome to the Event Management System!</h2>
-          <Button variant="primary" onClick={handleButtonClick}>
-            View Events
-          </Button>
-          <Button variant="secondary" onClick={handleGoBack} className="mt-2">
-            Go Back
-          </Button>
-        </Card>
-      </Container>
+      <div className="home-page" style={{ 
+        background: 'linear-gradient(to right, #ff7e66, #feb4bb)', 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        padding: '20px'
+      }}>
+        <Container>
+          <Row className="justify-content-center">
+            <Col md={8}>
+              <Card className="text-center p-5 shadow-lg rounded">
+                <h1 className="mb-3 text-primary fw-bold">Welcome to Event Management System</h1>
+                <p className="text-muted fs-5">
+                  📅 Here you can show the  scheduled event,Timings,Notification,by login as user.
+                     Just enjoy the events with your folks.
+                </p>
+                <div className="mt-4">
+                  <Image 
+                    src="/Eventimage.jpeg" 
+                    alt="Event Management" 
+                    className="img-fluid w-65 rounded shadow"
+                  />
+                </div>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };
